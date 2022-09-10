@@ -1,0 +1,15 @@
+#     *
+#    ***
+#   *****
+#  *******
+ n = 4
+ for i in range(n):
+     for j in range(i,n):
+         print(" ", end="")
+        
+     for j in range(i):   # i me +1 karne pe 2 triangle ko add kar rha wahan bas i lgane pr proper pyramid hojayga
+         print("*", end="")
+     for j in range(i+1):
+         print('*', end='')
+        
+     print()  
