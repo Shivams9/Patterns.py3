@@ -1,0 +1,36 @@
+#Wap to print to rotate like a jalebi
+# 1  2  3  4  5 
+# 16 17 18 19 6
+# 15 24 25 20 7
+# 14 23 22 21 8
+# 13 12 11 10 9
+
+n = 5
+left, top = 0, 0
+bottom, right = n - 1, n - 1
+# print(left, top, right, bottom, )
+a = [0 for i in range(n)]
+board = [a.copy() for i in range(n)]
+# print(board)
+count = 1
+while count <= n * n:
+    for i in range(left, right + 1):
+        board[top][i] = count
+        count += 1
+    top += 1
+    for i in range(top, bottom + 1):
+        board[i][right] = count
+        count += 1
+    right -= 1
+    for i in range(right, left - 1, -1):
+        board[bottom][i] = count
+        count += 1
+    bottom -= 1
+    for i in range(bottom, top - 1, -1):
+        board[i][left] = count
+        count += 1
+    left += 1
+for i in range(n):
+    for j in range(n):
+        print(board[i][j], end="\t")
+    print()
