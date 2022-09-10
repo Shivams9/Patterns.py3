@@ -1,0 +1,40 @@
+# A B C D E
+# P Q R S F
+# O X Y T G
+# N W V U H 
+# M L K J I
+
+
+n = 5
+left, top = 0, 0
+bottom, right = n - 1, n - 1
+# print(left, top, right, bottom, )
+a = [0 for i in range(n)]
+board = [a.copy() for i in range(n)]
+# print(board)
+count = 1
+x = ord('A')
+while count <= n * n:
+    for i in range(left, right + 1):
+        board[top][i] = count
+        count += 1
+    top += 1
+    for i in range(top, bottom + 1):
+        board[i][right] = count
+        count += 1
+    right -= 1
+    for i in range(right, left - 1, -1):
+        board[bottom][i] = count
+        count += 1
+    bottom -= 1
+    for i in range(bottom, top - 1, -1):
+        board[i][left] = count
+        count += 1
+    left += 1
+for i in range(n):
+    for j in range(n):
+        ch = chr(x + board[i][j] - 1)
+        print(ch, end="\t")
+    print()
+
+
